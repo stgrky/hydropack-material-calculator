@@ -11,11 +11,11 @@ const Calculator = () => {
 
   const padOptions = [
     { label: 'Hydropack S Concrete Pad with water Tank', value: 3000 },
-    { label: 'Hydropack S Concrete Pad - No water Tank site', value: 1800 },
-    { label: 'Hydropack Concrete Pad with water Tank site', value: 3500 },
-    { label: 'Hydropack Concrete Pad - No water Tank site', value: 2500 },
-    { label: 'Hydropack X concrete pad with water Tank site', value: 5500 },
-    { label: 'Hydropack X concrete pad - No water Tank', value: 3800 },
+    { label: 'Hydropack S Concrete Pad, no water Tank', value: 1800 },
+    { label: 'Hydropack Concrete Pad with water Tank', value: 3500 },
+    { label: 'Hydropack Concrete Pad, no water Tank', value: 2500 },
+    { label: 'Hydropack X concrete pad with water Tank', value: 5500 },
+    { label: 'Hydropack X concrete pad, no water Tank', value: 3800 },
   ];
 
   const tankOptions = [
@@ -48,7 +48,7 @@ const Calculator = () => {
 
   return (
     <div className="calculator-container">
-      <h1>Concrete Pad Installation Calculator</h1>
+      <h1>Installation Materials Rough Cost Calculator</h1>
 
       <div className="dropdown">
         <label htmlFor="padOptions">Select Concrete Pad Option:</label>
