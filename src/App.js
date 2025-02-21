@@ -38,7 +38,7 @@ const Calculator = () => {
     },
     {
       id: "pad4",
-      label: "Hydropack, machine and tank",
+      label: "Hydropack, machine only",
       low: 1700,
       high: 2500,
     },
@@ -50,7 +50,7 @@ const Calculator = () => {
     },
     {
       id: "pad6",
-      label: "Hydropack X, machine and tank",
+      label: "Hydropack X, machine only",
       low: 3000,
       high: 3800,
     },
