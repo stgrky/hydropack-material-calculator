@@ -164,99 +164,112 @@ const Calculator = () => {
   }
 
   return (
-    <div className="calculator-container">
-      <h1>Concrete Pad Installation Calculator</h1>
+    <div className="wrapper">
+      <div className="calculator-container">
+        <h1>Aquaria Contractor Installation Calculator</h1>
 
-      <div className="dropdown-container">
-        <label>Select Unit:</label>
-        <select onChange={(e) => setUnitOption(Number(e.target.value))}>
-          <option value="0">-- Select an option --</option>
-          {unitOptions.map((option, index) => (
-            <option key={index} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="dropdown-container">
-        <label>Select Concrete Pad Option:</label>
-        <select
-          onChange={(e) => {
-            if (e.target.value === "") {
-              setPadOption({ low: 0, high: 0 });
-            } else {
-              const selected = padOptions.find(
-                (option) => option.id === e.target.value
-              );
-              setPadOption(selected || { low: 0, high: 0 });
-            }
-          }}
-        >
-          <option value="">-- Select an option --</option>
-          {padOptions.map((option) => (
-            <option key={option.id} value={option.id}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="dropdown-container">
-        <label>Select Water Tank Option:</label>
-        <select
-          onChange={(e) => {
-            const selected = tankOptions.find(
-              (option) => option.high === Number(e.target.value)
-            );
-            setTankOption(selected || { low: 0, high: 0 });
-          }}
-        >
-          <option value="0">-- Select an option --</option>
-          {tankOptions.map((option, index) => (
-            <option key={index} value={option.high}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="checkboxes">
-        <p>Optional Extras:</p>
-        {extraOptions.map((extra) => (
-          <div className="checkbox-item" key={extra.key}>
-            <input
-              type="checkbox"
-              id={extra.key}
-              checked={extras[extra.key]}
-              onChange={() => handleExtraChange(extra.key)}
-            />
-            <label htmlFor={extra.key}>{extra.label}</label>
-          </div>
-        ))}
-      </div>
-
-      {/* Itemized List */}
-      <div className="itemized-list">
-        <h3>Itemized Breakdown</h3>
-        {breakdownItems.length > 0 ? (
-          <ul>
-            {breakdownItems.map((item, idx) => (
-              <li key={idx}>
-                <strong>{item.label}:</strong> {item.cost}
-              </li>
+        <div className="dropdown-container">
+          <label>Select Unit:</label>
+          <select onChange={(e) => setUnitOption(Number(e.target.value))}>
+            <option value="0">-- Select an option --</option>
+            {unitOptions.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
             ))}
-          </ul>
-        ) : (
-          <p>No items selected.</p>
-        )}
-      </div>
+          </select>
+        </div>
 
-      <div className="total">
-        <h2>Total: {displayTotal}</h2>
-      </div>
+        <div className="dropdown-container">
+          <label>Select Concrete Pad Option:</label>
+          <select
+            onChange={(e) => {
+              if (e.target.value === "") {
+                setPadOption({ low: 0, high: 0 });
+              } else {
+                const selected = padOptions.find(
+                  (option) => option.id === e.target.value
+                );
+                setPadOption(selected || { low: 0, high: 0 });
+              }
+            }}
+          >
+            <option value="">-- Select an option --</option>
+            {padOptions.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
+        <div className="dropdown-container">
+          <label>Select Water Tank Option:</label>
+          <select
+            onChange={(e) => {
+              const selected = tankOptions.find(
+                (option) => option.high === Number(e.target.value)
+              );
+              setTankOption(selected || { low: 0, high: 0 });
+            }}
+          >
+            <option value="0">-- Select an option --</option>
+            {tankOptions.map((option, index) => (
+              <option key={index} value={option.high}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="checkboxes">
+          <p>Optional Extras:</p>
+          {extraOptions.map((extra) => (
+            <div className="checkbox-item" key={extra.key}>
+              <input
+                type="checkbox"
+                id={extra.key}
+                checked={extras[extra.key]}
+                onChange={() => handleExtraChange(extra.key)}
+              />
+              <label htmlFor={extra.key}>{extra.label}</label>
+            </div>
+          ))}
+        </div>
+
+        {/* Itemized List */}
+        <div className="itemized-list">
+          <h3>Itemized Breakdown</h3>
+          {breakdownItems.length > 0 ? (
+            <ul>
+              {breakdownItems.map((item, idx) => (
+                <li key={idx}>
+                  <strong>{item.label}:</strong> {item.cost}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No items selected.</p>
+          )}
+        </div>
+
+        <div className="total">
+          <h2>Total: {displayTotal}</h2>
+        </div>
+      </div>
       <style>{`
+        /* Wrapper to center the calculator on mobile/tablet */
+        .wrapper {
+          width: 100%;
+        }
+        @media (max-width: 1024px) {
+          .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+          }
+        }
         .calculator-container {
           font-family: Arial, sans-serif;
           background: white;
@@ -316,6 +329,31 @@ const Calculator = () => {
           color: white;
           padding: 10px;
           border-radius: 5px;
+        }
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+          .calculator-container {
+            padding: 15px;
+            margin: 10px;
+          }
+          h1 {
+            font-size: 1.5em;
+          }
+          select {
+            font-size: 14px;
+            padding: 8px;
+          }
+          .checkbox-item {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .total {
+            font-size: 18px;
+            padding: 8px;
+          }
+          .itemized-list {
+            height: auto;
+          }
         }
       `}</style>
     </div>
