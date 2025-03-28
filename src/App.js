@@ -120,18 +120,52 @@ export default function Home() {
 
       {selectedInstallation === "Machine Only Purchase" && (
         <div className="purchase-container">
-          <p className="note">
-            Note: Price estimate inclusive exclusively of Hydropack and unit
-            delivery. This will not include a forklift and means of getting unit
-            on the concrete pad, as this will be the responsibility of the
-            customer's general contractor.
-          </p>
+          <ul className="note">
+            <h3>
+              <strong>Installation scope includes:</strong>
+            </h3>
+            <li>
+              <strong>Delivery:</strong> Delivery of the Hydropack
+            </li>
+            <li>
+              <strong>Forklift & Placement:</strong> Forklift and placement of
+              the unit onto the concrete pad
+            </li>
+            <li>
+              <strong>Placement:</strong> Installation is 15–20 feet from the
+              external main electric panel only
+            </li>
+            <li>
+              <strong>Power Outlet:</strong> Installation of one weatherproof
+              outlet for the external water pump
+            </li>
+            <li>
+              <strong>Electrical:</strong> Connection to the home’s external
+              electric panel (includes trenching up to 20 ft)
+            </li>
+            <li>
+              <strong>Plumbing:</strong> Connection from the Aquaria system to
+              the water storage tank for water dispensing
+            </li>
+            <li>
+              <strong>Winterization:</strong> All plumbing lines included for
+              cold-weather readiness
+            </li>
+            <li>
+              <strong>Valve:</strong> One release valve installed at the bottom
+              of the water tank
+            </li>
+            <li>
+              <strong>Foundation:</strong> Concrete pad for both the Aquaria
+              system and the recommended water storage tank
+            </li>
+          </ul>
+
           <div className="table">
             <div className="option">
               <h3 className="option-title">Option One: Out of Pocket</h3>
               <p className="total">
-                Total: $
-                {machineOnlyData[selectedUnit].total.toLocaleString()}
+                Total: ${machineOnlyData[selectedUnit].total.toLocaleString()}
               </p>
               <div className="line-items">
                 <p>
@@ -150,13 +184,11 @@ export default function Home() {
                 Option Two: Financing Monthly Payment Plans
               </h3>
               <div className="payment-plans">
-                {machineOnlyData[selectedUnit].financing.map(
-                  (plan, index) => (
-                    <div key={index} className="plan">
-                      {plan.term}: ${plan.price}/month
-                    </div>
-                  )
-                )}
+                {machineOnlyData[selectedUnit].financing.map((plan, index) => (
+                  <div key={index} className="plan">
+                    {plan.term}: ${plan.price}/month
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -165,12 +197,47 @@ export default function Home() {
 
       {selectedInstallation === "Connection to Tank Only" && (
         <div className="purchase-container">
-          <p className="note">
-            Note: Price estimate inclusive exclusively of Hydropack and unit
-            delivery. This will not include a forklift and means of getting unit
-            onto concrete pad, as this will be the responsibility of the
-            customer's general contractor.
-          </p>
+          <ul className="note">
+            <h3>
+              <strong>Installation scope includes:</strong>
+            </h3>
+            <li>
+              <strong>Delivery:</strong> Delivery of the Hydropack
+            </li>
+            <li>
+              <strong>Forklift & Placement:</strong> Forklift and placement of
+              the unit onto the concrete pad
+            </li>
+            <li>
+              <strong>Placement:</strong> Installation is 15–20 feet from the
+              external main electric panel only
+            </li>
+            <li>
+              <strong>Power Outlet:</strong> Installation of one weatherproof
+              outlet for the external water pump
+            </li>
+            <li>
+              <strong>Electrical:</strong> Connection to the home’s external
+              electric panel (includes trenching up to 20 ft)
+            </li>
+            <li>
+              <strong>Plumbing:</strong> Connection from the Aquaria system to
+              the water storage tank for water dispensing
+            </li>
+            <li>
+              <strong>Winterization:</strong> All plumbing lines included for
+              cold-weather readiness
+            </li>
+            <li>
+              <strong>Valve:</strong> One release valve installed at the bottom
+              of the water tank
+            </li>
+            <li>
+              <strong>Foundation:</strong> Concrete pad for both the Aquaria
+              system and the recommended water storage tank
+            </li>
+          </ul>
+
           <div className="table">
             <div className="option">
               <h3 className="option-title">Option One: Out of Pocket</h3>
