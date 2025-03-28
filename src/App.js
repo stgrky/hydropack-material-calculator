@@ -86,7 +86,7 @@ export default function Home() {
 
   return (
     <div className="page">
-      <h1 className="title">Water Production Estimate Calculator</h1>
+      <h1 className="title">Installation Cost Calculator</h1>
 
       <div className="dropdowns">
         <div className="dropdown">
